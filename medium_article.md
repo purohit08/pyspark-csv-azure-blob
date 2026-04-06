@@ -58,11 +58,11 @@ from pyspark.sql.types import DoubleType
 import pandas as pd
 
 # ── Configuration ────────────────────────────────────────────
-TABLE_1 = "dpaas_uccatalog_prd.athena_extracts.pangea_foundations_monthly"
-TABLE_2 = "dpaas_uccatalog_prd.athena_extracts.pangea_customer_dashboard_metric_glossary"
+TABLE_1 = "xyz"
+TABLE_2 = "abc"
 
-ACCOUNT_NAME = "pangeaaccount"
-CONTAINER = "pangeacontainer"
+ACCOUNT_NAME = "xaccount"
+CONTAINER = "xcontainer"
 
 # IMPORTANT: Never hardcode keys. Use Databricks secret scope.
 ACCOUNT_KEY = dbutils.secrets.get(scope="your-scope", key="storage-account-key")
@@ -112,10 +112,10 @@ df1 = spark.table(TABLE_1)
 df2 = spark.table(TABLE_2)
 
 upload_df_as_single_csv(
-    df1, "pangea_foundations_monthly", "data/table1.csv"
+    df1, "xyz", "data/table1.csv"
 )
 upload_df_as_single_csv(
-    df2, "pangea_customer_dashboard_metric_glossary", "data/table2.csv"
+    df2, "abc", "data/table2.csv"
 )
 ```
 
