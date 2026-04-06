@@ -19,11 +19,11 @@ from pyspark.sql.types import DoubleType
 # ── Configuration ──────────────────────────────────────────────────────────────
 # Update these values to match your environment
 
-TABLE_1 = "dpaas_uccatalog_prd.athena_extracts.pangea_foundations_monthly"
-TABLE_2 = "dpaas_uccatalog_prd.athena_extracts.pangea_customer_dashboard_metric_glossary"
+TABLE_1 = "xyz"
+TABLE_2 = "abc"
 
-ACCOUNT_NAME = "pangeaaccount"
-CONTAINER = "pangeacontainer"
+ACCOUNT_NAME = "xaccount"
+CONTAINER = "xcontainer"
 
 # IMPORTANT: Never hardcode keys. Use Databricks secret scope.
 ACCOUNT_KEY = dbutils.secrets.get(scope="your-scope", key="storage-account-key")
@@ -97,9 +97,9 @@ if __name__ == "__main__":
     df2 = spark.table(TABLE_2)
 
     # Upload as single CSV files
-    upload_df_as_single_csv(df1, "pangea_foundations_monthly", "data/table1.csv")
+    upload_df_as_single_csv(df1, "xyz", "data/table1.csv")
     upload_df_as_single_csv(
-        df2, "pangea_customer_dashboard_metric_glossary", "data/table2.csv"
+        df2, "abc", "data/table2.csv"
     )
 
     # ── Verification ───────────────────────────────────────────────────────────
